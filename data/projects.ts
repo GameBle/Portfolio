@@ -35,7 +35,7 @@ export const projects: Project[] = [
     ],
     githubUrl: "https://github.com/GameBle/not_paytm/tree/master",
     liveUrl: "https://not-paytm.vercel.app",
-    imagePath: "/projects/not-paytm.svg",
+    imagePath: "/projects/not-paytm.png",
     featured: true,
   },
 ];
