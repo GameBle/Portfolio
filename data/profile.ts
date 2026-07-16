@@ -49,5 +49,6 @@ export const profile: Profile = {
   currentlyLearning: [
     "Advanced Kubernetes patterns",
     "LLM observability",
+    "Designing resilient event-driven systems at scale",
   ],
 };

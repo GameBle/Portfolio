@@ -39,12 +39,3 @@ export const projects: Project[] = [
     featured: true,
   },
 ];
-
-export const projectCategories = [
-  { id: "all", label: "All" },
-  { id: "fullstack", label: "Full Stack" },
-  { id: "backend", label: "Backend" },
-  { id: "frontend", label: "Frontend" },
-  { id: "ai", label: "AI/ML" },
-  { id: "devops", label: "DevOps" },
-] as const;

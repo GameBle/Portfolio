@@ -4,15 +4,14 @@ import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { ExternalLink, Github } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
 
 import { Badge } from "@/components/ui/Badge";
 import { GlassCard } from "@/components/ui/GlassCard";
 import { Reveal } from "@/components/ui/Reveal";
 import { Section } from "@/components/ui/Section";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { projectCategories, projects } from "@/data/projects";
-import { cn, isTodoPlaceholder } from "@/lib/utils";
+import { projects } from "@/data/projects";
+import { isTodoPlaceholder } from "@/lib/utils";
 
 function ProjectCard({
   title,
@@ -65,13 +64,13 @@ function ProjectCard({
         />
 
         <div className="relative overflow-hidden rounded-xl border border-border bg-muted/40">
-          <div className="relative h-48 w-full md:h-56">
+          <div className="relative h-48 w-full md:h-96">
             <Image
               src={imagePath}
               alt={`${title} project screenshot`}
               fill
               className="object-cover transition-transform duration-500 group-hover:scale-[1.02]"
-              sizes="(max-width: 768px) 100vw, 50vw"
+              sizes="100vw"
               unoptimized={imagePath.endsWith(".svg")}
             />
           </div>
@@ -144,13 +143,6 @@ function ProjectCard({
 }
 
 export function Projects() {
-  const [activeCategory, setActiveCategory] = useState<string>("all");
-
-  const filteredProjects =
-    activeCategory === "all"
-      ? projects
-      : projects.filter((project) => project.category === activeCategory);
-
   return (
     <Section id="projects">
       <SectionHeading
@@ -160,28 +152,8 @@ export function Projects() {
         description="Production-minded projects with real engineering tradeoffs, not tutorial clones."
       />
 
-      <Reveal>
-        <div className="mb-8 flex flex-wrap gap-2">
-          {projectCategories.map((category) => (
-            <button
-              key={category.id}
-              type="button"
-              onClick={() => setActiveCategory(category.id)}
-              className={cn(
-                "focus-ring rounded-full border px-4 py-2 text-sm transition-colors",
-                activeCategory === category.id
-                  ? "border-accent bg-accent text-accent-foreground"
-                  : "border-border text-muted-foreground hover:text-foreground",
-              )}
-            >
-              {category.label}
-            </button>
-          ))}
-        </div>
-      </Reveal>
-
-      <div className="grid gap-6 lg:grid-cols-2">
-        {filteredProjects.map((project, index) => (
+      <div className="grid gap-6">
+        {projects.map((project, index) => (
           <Reveal key={project.id} delay={index * 0.08}>
             <ProjectCard {...project} />
           </Reveal>
