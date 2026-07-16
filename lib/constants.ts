@@ -5,7 +5,7 @@ export const siteConfig = {
   title: "Ali Saquib Raza | Software Developer",
   description:
     "Portfolio of Ali Saquib Raza — Software Developer building production-grade AI workflows, distributed systems, and full-stack applications.",
-  url: "https://portfolio-website.vercel.app",
+  url: "https://portfolio-sigma-umber-93.vercel.app",
   ogImage: "/og-image.svg",
   creator: "Ali Saquib Raza",
   keywords: [
